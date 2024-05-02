@@ -1,15 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-#heading{
-    color: red;
-}
-#root{
-    background-color: aqua;
-    height: 100vh;
-}
-
-h1{
-    color: red;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
