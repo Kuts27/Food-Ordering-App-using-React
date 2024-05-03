@@ -11,6 +11,9 @@ import { Suspense, lazy } from "react"
 import Grocery from "./components/Grocery"
 import UserContext from "./utils/UserContext"
 import { useState } from "react"
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore"
+import Cart from "./components/Cart"
 
 const Grocery = lazy(()=> import("./components/Grocery"))
 
@@ -28,6 +31,8 @@ const AppLayout = () => {
     },[])
 
     return(
+
+        <Provider store={appStore}> 
         <UserContext.Provider value={{loggedInUser: userName}}>
         <div className = "app">
             <Header/>
@@ -35,6 +40,7 @@ const AppLayout = () => {
             <Outlet />
         </div>
         </UserContext.Provider>
+        </Provider>
     )
 }
 
@@ -64,6 +70,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/grocery",
                 element:<Suspense fallback={<h1>Loading..</h1>} > <Grocery/> </Suspense>,
+            },
+            {   
+                path: "/cart",
+                element: <Cart />,
             },
             {
                 path: "/restaurants/:resId",

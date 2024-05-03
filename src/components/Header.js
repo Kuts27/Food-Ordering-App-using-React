@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
@@ -20,6 +21,9 @@ console.log(onlineStatus)
  
 useEffect(()=>{console.log("useEffect called")},[btnNameReact]) // arguments as callback function and dependecy array
 
+const cartItems = useSelector((store) => store.cart.items)
+console.log(cartItems)
+
     return (
         <div className="header flex justify-between bg-gray-900 text-white lg:bg-black">
             <div className="logo w-20 p-2">
@@ -33,7 +37,7 @@ useEffect(()=>{console.log("useEffect called")},[btnNameReact]) // arguments as 
                     <li><Link to={"/about"}> About</Link></li>
                     <li><Link to={"/contact"}> Contact Us</Link></li>
                     <li><Link to={"/grocery"}> Grocery</Link></li>
-                    <li>Cart</li>   
+                    <li><Link to={"/cart"}>Cart({cartItems.length} items)</Link></li>   
                     
                     <button className="login" onClick={()=>{
                         //Toggle functionality

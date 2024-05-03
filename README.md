@@ -62,3 +62,5 @@ useState() = superpowerful state variables
 - slice (cart slice)
 - dispatch (action)
 - Selector
+
+"redux": "^5.0.1"

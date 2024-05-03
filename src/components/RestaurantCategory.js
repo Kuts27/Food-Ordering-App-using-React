@@ -3,6 +3,8 @@ import { CDN_URL } from "../utils/constants"
 import React from "react"
 import { useState } from "react"
 import ItemList from "./ItemList"
+import { useDispatch } from "react-redux"
+import { addItem } from "../utils/cartSlice"
 
 const RestaurantCategory =(data) =>{
 
@@ -14,6 +16,11 @@ const RestaurantCategory =(data) =>{
         setShowItems(!showItems)
     }
 
+    const dispatch = useDispatch()
+    const handleAddItem = (item) =>{
+        //dispatch an action
+        dispatch(addItem(item))
+    }    
     //console.log(data)
     //console.log(items)
     return (
@@ -30,13 +37,13 @@ const RestaurantCategory =(data) =>{
                    <div className="">
                     <ul className="text-left ">
                    <li className="flex justify-between my-3">{data?.data?.itemCards[0]?.card?.info?.name} -Rs.{data?.data?.itemCards[0]?.card?.info?.price/100} 
-                        <div><div className="absolute"><button className=" bg-black text-white shadow-lg">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[0]?.card?.info?.imageId} className="w-20"/></div></li> 
+                        <div><div className="absolute"><button onClick={() => handleAddItem(data?.data?.itemCards[0])} className=" bg-black text-white shadow-lg cursor-pointer">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[0]?.card?.info?.imageId} className="w-20"/></div></li> 
                    <li className="flex justify-between my-3">{data?.data?.itemCards[1]?.card?.info?.name} -Rs.{data?.data?.itemCards[1]?.card?.info?.price/100} 
-                        <div><div className="absolute"><button className=" bg-black text-white shadow-lg">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[1]?.card?.info?.imageId} className="w-20"/></div></li> 
+                        <div><div className="absolute"><button onClick={() => handleAddItem(data?.data?.itemCards[1])} className=" bg-black text-white shadow-lg cursor-pointer">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[1]?.card?.info?.imageId} className="w-20"/></div></li> 
                    <li className="flex justify-between my-3">{data?.data?.itemCards[2]?.card?.info?.name} -Rs.{data?.data?.itemCards[2]?.card?.info?.price/100} 
-                        <div><div className="absolute"><button className=" bg-black text-white shadow-lg">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[2]?.card?.info?.imageId} className="w-20"/></div></li> 
+                        <div><div className="absolute"><button onClick={() => handleAddItem(data?.data?.itemCards[2])} className=" bg-black text-white shadow-lg cursor-pointer">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[2]?.card?.info?.imageId} className="w-20"/></div></li> 
                    <li className="flex justify-between my-3">{data?.data?.itemCards[3]?.card?.info?.name} -Rs.{data?.data?.itemCards[3]?.card?.info?.price/100} 
-                        <div><div className="absolute"><button className=" bg-black text-white shadow-lg">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[3]?.card?.info?.imageId} className="w-20"/></div></li> 
+                        <div><div className="absolute"><button onClick={() => handleAddItem(data?.data?.itemCards[3])} className=" bg-black text-white shadow-lg cursor-pointer">Add +</button> </div><img src={CDN_URL+ data?.data?.itemCards[3]?.card?.info?.imageId} className="w-20"/></div></li> 
                    </ul>
                 </div>
                 }
