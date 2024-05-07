@@ -25,14 +25,14 @@ const cartItems = useSelector((store) => store.cart.items)
 console.log(cartItems)
 
     return (
-        <div className="header flex justify-between bg-gray-900 text-white lg:bg-black">
-            <div className="logo w-20 p-2">
+        <div className="header h-24 flex justify-between bg-gray-900 text-white lg:bg-black ">
+            <div className="logo w-24 p-2">
                 <img src={LOGO_URL}></img>
             </div>
 
             <div className="nav-items flex items-center">
                 <ul className="flex m-4 p-2 gap-6">
-                    <li> OnlineStatus: {onlineStatus ? "Online" : "Offline"} </li>
+                    <li> OnlineStatus: {onlineStatus ? "🟢"  : "Offline"} </li>
                     <li><Link to={"/"}>Home</Link></li>
                     <li><Link to={"/about"}> About</Link></li>
                     <li><Link to={"/contact"}> Contact Us</Link></li>

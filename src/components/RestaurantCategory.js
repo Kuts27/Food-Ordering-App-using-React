@@ -28,7 +28,7 @@ const RestaurantCategory =(data) =>{
             <div className=" w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4 ">
                 <div className="flex justify-between cursor-pointer" onClick={handleClick}>
                        {/* header */}
-                <span className="font-bold text-lg">{data?.data?.title} ({data?.data?.itemCards?.length})</span>
+                <span className="font-bold text-lg">{data?.data?.title} </span>
                 <span>↓</span>
                 </div>     
                    {/* Accordian body */}  
